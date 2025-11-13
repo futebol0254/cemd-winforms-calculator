@@ -1,38 +1,163 @@
+﻿using Exemplo.Classes;
+using System.Security.Cryptography;
+
 namespace Exemplo
 {
     public partial class Form1 : Form
     {
+        Operacoes op;
         public Form1()
         {
             InitializeComponent();
+            op = new Operacoes();
+
         }
 
-        private void onButtonClick(object sender, EventArgs e)
+        private bool validateInputSet(bool apenasX = false)
         {
-            int valorX = int.Parse(inputTextX.Text);
-            int valorY = int.Parse(inputTextY.Text);
+            bool xValido = double.TryParse(inputTextX.Text, out double x);
+            bool yValido = true;
+            double y = 0;
 
-            int operacao = valorX + valorY;
+            if (!apenasX)
+            {
+                yValido = double.TryParse(inputTextY.Text, out y);
+            }
 
-            string formatoSaida = "Resultado da opera??o entre " + valorX + "e " +
-                    valorY + " foi igual ?: " + operacao;
-
+            if (xValido && yValido)
+            {
+                op.setXFromInput(x);
+                op.setYFromInput(y);
+                return true;
+            }
+            else
+            {
+                labelOutput.Visible = true;
+                labelOutput.Text = "Erro de entrada!";
+                labelResult.Visible = true;
+                labelResult.Text = "Verifique os números";
+                return false;
+            }
+        }
+        public void printResult(string operacaoFormatada, double result)
+        {
             labelOutput.Visible = true;
-            labelOutput.Text = formatoSaida;
-
+            labelOutput.Text = operacaoFormatada;
+            labelResult.Visible = true;
+            labelResult.Text = result.ToString();
         }
+    
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void toCalculate(string tipoOperacao)
         {
+            bool necessitaApenasX = (tipoOperacao == "DOBRO_X" || tipoOperacao == "RAIZ_X" || tipoOperacao == "BINARIO_X");
+
+            if (!validateInputSet(necessitaApenasX))
+            {
+                return;
+            }
+
+            double result = 0;
+            string formatoSaida = "";
+            double x = op.getX();
+            double y = op.getY();
+
+            switch (tipoOperacao)
+            {
+                case "SOMA":
+                    result = op.Sum();
+                    formatoSaida = $"{x} + {y} =";
+                    break;
+                case "SUB":
+                    result = op.Subtract();
+                    formatoSaida = $"{x} - {y} =";
+                    break;
+                case "MULT":
+                    result = op.Multiply();
+                    formatoSaida = $"{x} * {y} =";
+                    break;
+                case "DIV":
+                    result = op.Divide();
+                    formatoSaida = $"{x} / {y} =";
+                    break;
+                case "DOBRO_X":
+                    result = op.SquareOfX();
+                    formatoSaida = $"{x}² =";
+                    break;
+                case "RAIZ_X":
+                    result = op.SquareRootOfX();
+                    formatoSaida = $"√{x} =";
+                    break;
+                case "PCT_XY":
+                    result = op.PercentageXofY();
+                    formatoSaida = $"{x}% de {y} =";
+                    break;
+                case "POT_XY":
+                    result = op.XRaisedToThePowerOfY();
+                    formatoSaida = $"{x} ^ {y} =";
+                    break;
+                case "BINARIO_X":
+                    result = op.ToBinary();
+                    formatoSaida = $"{x} em binário é:";
+                    return;
+            }
+
+            printResult(formatoSaida, result);
         }
 
-        private void button6_Click(object sender, EventArgs e)
+
+
+        //Método dos botões
+
+        public void cleanInputs(object sender, EventArgs e)
         {
+            inputTextX.Text = "";
+            inputTextY.Text = "";
         }
-
-        private void btnSub_Click(object sender, EventArgs e)
+        private void onSomaClick(object sender, EventArgs e)
         {
-
+            toCalculate("SOMA");
         }
+
+        private void onSubClick(object sender, EventArgs e)
+        {
+            toCalculate("SUB");
+        }
+
+        private void onMultiply(object sender, EventArgs e)
+        {
+            toCalculate("MULT");
+        }
+
+        private void onDivideClick(object sender, EventArgs e)
+        {
+            toCalculate("DIV");
+        }
+
+        public void onSquaredClick(object sender, EventArgs e)
+        {
+            toCalculate("DOBRO_X");
+        }
+
+        public void onSquareRootClick(object sender, EventArgs e)
+        {
+            toCalculate("RAIZ_X");
+        }
+
+        public void onPercentageClick(object sender, EventArgs e)
+        {
+            toCalculate("PCT_XY");
+        }
+
+        public void onToBinarieClick(object sender, EventArgs e)
+        {
+            toCalculate("BINARIO_X");
+        }
+
+        public void onXRaisedToY(object sender, EventArgs e)
+        {
+            toCalculate("POT_XY");
+        }
+
     }
 }

@@ -59,5 +59,45 @@ namespace Exemplo.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _30454784_abstrato_azul_e_preto_fundo_generativo_ai_foto {
+            get {
+                object obj = ResourceManager.GetObject("30454784-abstrato-azul-e-preto-fundo-generativo-ai-foto", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _3bdd8e227492017_Y3JvcCwyMDEzLDE1NzUsMCw0NjM {
+            get {
+                object obj = ResourceManager.GetObject("3bdd8e227492017.Y3JvcCwyMDEzLDE1NzUsMCw0NjM", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap binary_code {
+            get {
+                object obj = ResourceManager.GetObject("binary-code", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sistema_codigo_binario {
+            get {
+                object obj = ResourceManager.GetObject("sistema-codigo-binario", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

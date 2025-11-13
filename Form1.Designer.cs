@@ -39,17 +39,18 @@
             btnDobro = new Button();
             btnRaiz = new Button();
             btnDivi = new Button();
-            btnBina = new Button();
-            button7 = new Button();
-            btnPoten = new Button();
+            btnToBinary = new Button();
+            btnXpowOfY = new Button();
+            btnPorcent = new Button();
             label2 = new Label();
+            labelResult = new Label();
             SuspendLayout();
             // 
             // inputTextY
             // 
             inputTextY.Location = new Point(83, 142);
             inputTextY.Name = "inputTextY";
-            inputTextY.Size = new Size(187, 31);
+            inputTextY.Size = new Size(187, 23);
             inputTextY.TabIndex = 2;
             inputTextY.Text = "...";
             // 
@@ -71,6 +72,7 @@
             btnSoma.TabIndex = 3;
             btnSoma.Text = "+";
             btnSoma.UseVisualStyleBackColor = false;
+            btnSoma.Click += onSomaClick;
             // 
             // labelTitle
             // 
@@ -84,14 +86,14 @@
             labelTitle.Size = new Size(300, 65);
             labelTitle.TabIndex = 0;
             labelTitle.Text = "Calculator";
-            labelTitle.TextAlign = ContentAlignment.MiddleLeft;
+            labelTitle.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // labelOutput
             // 
             labelOutput.AutoSize = true;
             labelOutput.BackColor = Color.FromArgb(40, 42, 54);
             labelOutput.ForeColor = Color.White;
-            labelOutput.Location = new Point(373, 21);
+            labelOutput.Location = new Point(395, 23);
             labelOutput.MaximumSize = new Size(400, 350);
             labelOutput.MinimumSize = new Size(400, 350);
             labelOutput.Name = "labelOutput";
@@ -105,7 +107,7 @@
             // 
             inputTextX.Location = new Point(83, 77);
             inputTextX.Name = "inputTextX";
-            inputTextX.Size = new Size(187, 31);
+            inputTextX.Size = new Size(187, 23);
             inputTextX.TabIndex = 1;
             inputTextX.Text = "...";
             // 
@@ -115,7 +117,7 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             label1.ForeColor = Color.Coral;
-            label1.Location = new Point(12, 58);
+            label1.Location = new Point(12, 53);
             label1.MaximumSize = new Size(65, 65);
             label1.MinimumSize = new Size(65, 65);
             label1.Name = "label1";
@@ -142,6 +144,7 @@
             btnMulti.TabIndex = 7;
             btnMulti.Text = "*";
             btnMulti.UseVisualStyleBackColor = false;
+            btnMulti.Click += onMultiply;
             // 
             // btnSub
             // 
@@ -161,7 +164,7 @@
             btnSub.TabIndex = 8;
             btnSub.Text = "-";
             btnSub.UseVisualStyleBackColor = false;
-            btnSub.Click += btnSub_Click;
+            btnSub.Click += onSubClick;
             // 
             // btnDobro
             // 
@@ -181,6 +184,7 @@
             btnDobro.TabIndex = 11;
             btnDobro.Text = "x²";
             btnDobro.UseVisualStyleBackColor = false;
+            btnDobro.Click += onSquaredClick;
             // 
             // btnRaiz
             // 
@@ -200,6 +204,7 @@
             btnRaiz.TabIndex = 10;
             btnRaiz.Text = "√";
             btnRaiz.UseVisualStyleBackColor = false;
+            btnRaiz.Click += onSquareRootClick;
             // 
             // btnDivi
             // 
@@ -219,63 +224,67 @@
             btnDivi.TabIndex = 9;
             btnDivi.Text = "/";
             btnDivi.UseVisualStyleBackColor = false;
+            btnDivi.Click += onDivideClick;
             // 
-            // btnBina
+            // btnToBinary
             // 
-            btnBina.BackColor = SystemColors.Highlight;
-            btnBina.Cursor = Cursors.Hand;
-            btnBina.FlatAppearance.BorderColor = SystemColors.Window;
-            btnBina.FlatAppearance.BorderSize = 3;
-            btnBina.FlatStyle = FlatStyle.Flat;
-            btnBina.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
-            btnBina.ForeColor = SystemColors.MenuText;
-            btnBina.Location = new Point(137, 354);
-            btnBina.MaximumSize = new Size(100, 65);
-            btnBina.MinimumSize = new Size(100, 65);
-            btnBina.Name = "btnBina";
-            btnBina.RightToLeft = RightToLeft.Yes;
-            btnBina.Size = new Size(100, 65);
-            btnBina.TabIndex = 14;
-            btnBina.Text = "010101";
-            btnBina.UseVisualStyleBackColor = false;
+            btnToBinary.BackColor = SystemColors.Highlight;
+            btnToBinary.Cursor = Cursors.Hand;
+            btnToBinary.FlatAppearance.BorderColor = SystemColors.Window;
+            btnToBinary.FlatAppearance.BorderSize = 3;
+            btnToBinary.FlatStyle = FlatStyle.Flat;
+            btnToBinary.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            btnToBinary.ForeColor = SystemColors.MenuText;
+            btnToBinary.Location = new Point(137, 354);
+            btnToBinary.MaximumSize = new Size(100, 65);
+            btnToBinary.MinimumSize = new Size(100, 65);
+            btnToBinary.Name = "btnToBinary";
+            btnToBinary.RightToLeft = RightToLeft.Yes;
+            btnToBinary.Size = new Size(100, 65);
+            btnToBinary.TabIndex = 14;
+            btnToBinary.Text = "010101";
+            btnToBinary.UseVisualStyleBackColor = false;
+            btnToBinary.Click += onToBinarieClick;
             // 
-            // button7
+            // btnXpowOfY
             // 
-            button7.BackColor = SystemColors.Highlight;
-            button7.Cursor = Cursors.Hand;
-            button7.FlatAppearance.BorderColor = SystemColors.Window;
-            button7.FlatAppearance.BorderSize = 3;
-            button7.FlatStyle = FlatStyle.Flat;
-            button7.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
-            button7.ForeColor = SystemColors.MenuText;
-            button7.Location = new Point(258, 354);
-            button7.MaximumSize = new Size(100, 65);
-            button7.MinimumSize = new Size(100, 65);
-            button7.Name = "button7";
-            button7.RightToLeft = RightToLeft.Yes;
-            button7.Size = new Size(100, 65);
-            button7.TabIndex = 13;
-            button7.Text = "x^y";
-            button7.UseVisualStyleBackColor = false;
+            btnXpowOfY.BackColor = SystemColors.Highlight;
+            btnXpowOfY.Cursor = Cursors.Hand;
+            btnXpowOfY.FlatAppearance.BorderColor = SystemColors.Window;
+            btnXpowOfY.FlatAppearance.BorderSize = 3;
+            btnXpowOfY.FlatStyle = FlatStyle.Flat;
+            btnXpowOfY.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            btnXpowOfY.ForeColor = SystemColors.MenuText;
+            btnXpowOfY.Location = new Point(258, 354);
+            btnXpowOfY.MaximumSize = new Size(100, 65);
+            btnXpowOfY.MinimumSize = new Size(100, 65);
+            btnXpowOfY.Name = "btnXpowOfY";
+            btnXpowOfY.RightToLeft = RightToLeft.Yes;
+            btnXpowOfY.Size = new Size(100, 65);
+            btnXpowOfY.TabIndex = 13;
+            btnXpowOfY.Text = "x^y";
+            btnXpowOfY.UseVisualStyleBackColor = false;
+            btnXpowOfY.Click += onXRaisedToY;
             // 
-            // btnPoten
+            // btnPorcent
             // 
-            btnPoten.BackColor = SystemColors.Highlight;
-            btnPoten.Cursor = Cursors.Hand;
-            btnPoten.FlatAppearance.BorderColor = SystemColors.Window;
-            btnPoten.FlatAppearance.BorderSize = 3;
-            btnPoten.FlatStyle = FlatStyle.Flat;
-            btnPoten.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
-            btnPoten.ForeColor = SystemColors.MenuText;
-            btnPoten.Location = new Point(12, 354);
-            btnPoten.MaximumSize = new Size(100, 65);
-            btnPoten.MinimumSize = new Size(100, 65);
-            btnPoten.Name = "btnPoten";
-            btnPoten.RightToLeft = RightToLeft.Yes;
-            btnPoten.Size = new Size(100, 65);
-            btnPoten.TabIndex = 12;
-            btnPoten.Text = "%";
-            btnPoten.UseVisualStyleBackColor = false;
+            btnPorcent.BackColor = SystemColors.Highlight;
+            btnPorcent.Cursor = Cursors.Hand;
+            btnPorcent.FlatAppearance.BorderColor = SystemColors.Window;
+            btnPorcent.FlatAppearance.BorderSize = 3;
+            btnPorcent.FlatStyle = FlatStyle.Flat;
+            btnPorcent.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            btnPorcent.ForeColor = SystemColors.MenuText;
+            btnPorcent.Location = new Point(12, 354);
+            btnPorcent.MaximumSize = new Size(100, 65);
+            btnPorcent.MinimumSize = new Size(100, 65);
+            btnPorcent.Name = "btnPorcent";
+            btnPorcent.RightToLeft = RightToLeft.Yes;
+            btnPorcent.Size = new Size(100, 65);
+            btnPorcent.TabIndex = 12;
+            btnPorcent.Text = "%";
+            btnPorcent.UseVisualStyleBackColor = false;
+            btnPorcent.Click += onPercentageClick;
             // 
             // label2
             // 
@@ -283,7 +292,7 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             label2.ForeColor = Color.Coral;
-            label2.Location = new Point(3, 123);
+            label2.Location = new Point(12, 123);
             label2.MaximumSize = new Size(65, 65);
             label2.MinimumSize = new Size(65, 65);
             label2.Name = "label2";
@@ -292,14 +301,30 @@
             label2.Text = "Y";
             label2.TextAlign = ContentAlignment.MiddleRight;
             // 
+            // labelResult
+            // 
+            labelResult.AutoSize = true;
+            labelResult.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            labelResult.ForeColor = Color.Coral;
+            labelResult.Location = new Point(461, 156);
+            labelResult.MaximumSize = new Size(300, 65);
+            labelResult.MinimumSize = new Size(300, 65);
+            labelResult.Name = "labelResult";
+            labelResult.Size = new Size(300, 65);
+            labelResult.TabIndex = 16;
+            labelResult.Text = "...";
+            labelResult.TextAlign = ContentAlignment.MiddleCenter;
+            labelResult.Visible = false;
+            // 
             // Form1
             // 
             BackColor = Color.FromArgb(62, 83, 102);
-            ClientSize = new Size(762, 431);
+            ClientSize = new Size(807, 431);
+            Controls.Add(labelResult);
             Controls.Add(label2);
-            Controls.Add(btnBina);
-            Controls.Add(button7);
-            Controls.Add(btnPoten);
+            Controls.Add(btnToBinary);
+            Controls.Add(btnXpowOfY);
+            Controls.Add(btnPorcent);
             Controls.Add(btnDobro);
             Controls.Add(btnRaiz);
             Controls.Add(btnDivi);
@@ -314,11 +339,9 @@
             FormBorderStyle = FormBorderStyle.SizableToolWindow;
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "VLS CALCULATOR";
-            Load += Form1_Load;
+            Text = "CALCULATOR";
             ResumeLayout(false);
             PerformLayout();
-
         }
 
         #endregion
@@ -334,9 +357,10 @@
         private Button btnDobro;
         private Button btnRaiz;
         private Button btnDivi;
-        private Button btnBina;
-        private Button button7;
-        private Button btnPoten;
+        private Button btnToBinary;
+        private Button btnXpowOfY;
+        private Button btnPorcent;
         private Label label2;
+        private Label labelResult;
     }
 }
