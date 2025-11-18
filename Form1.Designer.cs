@@ -101,6 +101,7 @@
             labelOutput.Size = new Size(400, 350);
             labelOutput.TabIndex = 4;
             labelOutput.Text = "...";
+            labelOutput.TextAlign = ContentAlignment.TopCenter;
             labelOutput.Visible = false;
             // 
             // inputTextX

@@ -71,8 +71,8 @@
               "Title": "Form1.Designer.cs",
               "DocumentMoniker": "C:\\Users\\senai.dsvsis\\workspace\\cemd-winforms-calculator\\Form1.Designer.cs",
               "RelativeDocumentMoniker": "Form1.Designer.cs",
-              "ToolTip": "C:\\Users\\senai.dsvsis\\workspace\\cemd-winforms-calculator\\Form1.Designer.cs*",
-              "RelativeToolTip": "Form1.Designer.cs*",
+              "ToolTip": "C:\\Users\\senai.dsvsis\\workspace\\cemd-winforms-calculator\\Form1.Designer.cs",
+              "RelativeToolTip": "Form1.Designer.cs",
               "ViewState": "AgIAAHgAAAAAAAAAAAAowD4BAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-11T22:46:00.969Z",
@@ -88,8 +88,7 @@
               "RelativeToolTip": ".gitignore",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-11-11T22:44:17.482Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-11T22:44:17.482Z"
             },
             {
               "$type": "Document",
@@ -101,8 +100,7 @@
               "RelativeToolTip": "Classe\\Operacoes.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAFMAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-11T22:41:32.411Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-11T22:41:32.411Z"
             }
           ]
         }
